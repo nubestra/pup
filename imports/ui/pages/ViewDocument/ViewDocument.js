@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
-import { createContainer } from 'meteor/react-meteor-data';
+import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
 import Documents from '../../../api/Documents/Documents';
@@ -38,9 +38,15 @@ const renderDocument = (doc, match, history) => (doc ? (
   </div>
 ) : <NotFound />);
 
-const ViewDocument = ({ loading, doc, match, history }) => (
+const ViewDocument = ({
+  loading, doc, match, history,
+}) => (
   !loading ? renderDocument(doc, match, history) : <Loading />
 );
+
+ViewDocument.defaultProps = {
+  doc: null,
+};
 
 ViewDocument.propTypes = {
   loading: PropTypes.bool.isRequired,
@@ -49,7 +55,7 @@ ViewDocument.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default createContainer(({ match }) => {
+export default withTracker(({ match }) => {
   const documentId = match.params._id;
   const subscription = Meteor.subscribe('documents.view', documentId);
 
@@ -57,4 +63,4 @@ export default createContainer(({ match }) => {
     loading: !subscription.ready(),
     doc: Documents.findOne(documentId),
   };
-}, ViewDocument);
+})(ViewDocument);
