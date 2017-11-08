@@ -1,19 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { ReactiveVar } from 'meteor/reactive-var';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import Content from '../../components/Content/Content';
 
-import './Page.scss';
+// if (Meteor.isClient) import './Page.css';
 
-const Page = ({ title, subtitle, content }) => (
-  <div className="Page">
+const Page = ({
+  className, title, subtitle, content,
+}) => (
+  <div className={className}>
     <PageHeader title={title} subtitle={subtitle} />
     <Content content={content} />
   </div>
 );
+
+const PageWithStyles = styled(Page)`
+  margin-bottom: 0px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 30px;
+  }
+`;
 
 Page.defaultProps = {
   subtitle: '',
@@ -28,7 +39,7 @@ Page.propTypes = {
 const pageContent = new ReactiveVar('');
 
 export default withTracker(({ content, page }) => {
-  window.scrollTo(0, 0); // Force window to top of page.
+  if (Meteor.isClient && window) window.scrollTo(0, 0); // Force window to top of page.
 
   Meteor.call('utility.getPage', page, (error, response) => {
     if (error) {
@@ -41,4 +52,4 @@ export default withTracker(({ content, page }) => {
   return {
     content: content || pageContent.get(),
   };
-})(Page);
+})(PageWithStyles);
