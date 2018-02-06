@@ -1,0 +1,49 @@
+.darkClass {
+  background-color: #021827;
+}
+
+.Simulador {
+    margin-bottom: 20px;
+}
+
+.Producto, .Categoria {
+    height: 160px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding: 5px 15px 0px 20px;
+    overflow: scroll;
+    h3 {
+      font-size: 20px;
+    }
+    .Select {
+        background: #4A4A4A;
+        padding: 7px 15px 0px 10px;
+        margin: 15px 15px 0px 0px;
+        height: 35px;
+        display: block;
+        border: none!important;
+        width: 100%;
+        text-align: left;
+        h4 {
+          margin-top: 0px;
+          font-weight: 100;
+        }
+    }
+}
+
+.Sidebar {
+  margin-top: 20px;
+  p {
+    font-size: 18px;
+    color: #ffffff;
+  }
+}
+
+.Mainscreen {
+  margin-top: 55px;
+  .img-test {
+    height: 500px;
+    width: 100%;
+  }
+}

@@ -1,33 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import PublicNavigation from '../PublicNavigation/PublicNavigation';
-import AuthenticatedNavigation from '../AuthenticatedNavigation/AuthenticatedNavigation';
 
 import './Navigation.scss';
 
-const Navigation = props => (
+const Navigation = () => (
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to="/">Pup</Link>
+        <Link to="/"><img alt="logo aldeco" src="/logo.png" /></Link>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
-      {!props.authenticated ? <PublicNavigation /> : <AuthenticatedNavigation {...props} />}
+      <Nav pullRight>
+        <NavItem eventKey={1} href="#">NOSOTROS</NavItem>
+        <NavItem eventKey={2} href="#">CONTACTO</NavItem>
+        <NavItem eventKey={3} href="#">PRODUCTOS</NavItem>
+        <NavItem eventKey={4} href="/">SIMULADOR</NavItem>
+        <NavItem eventKey={5} href="#">GALERÍA</NavItem>
+      </Nav>
     </Navbar.Collapse>
   </Navbar>
 );
 
 Navigation.defaultProps = {
   name: '',
-};
-
-Navigation.propTypes = {
-  authenticated: PropTypes.bool.isRequired,
-  name: PropTypes.string,
 };
 
 export default Navigation;

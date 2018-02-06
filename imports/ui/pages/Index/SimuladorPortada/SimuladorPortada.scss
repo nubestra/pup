@@ -1,0 +1,23 @@
+.portada {
+  height: 511px;
+  background-image: url("/portada.png");
+  h2 {
+      font-size: 22px;
+      color: #ffffff;
+      font-family: "Helvetica",Verdana, Arial, sans-serif;
+      font-weight: 300;
+      padding-top: 100px;
+      text-transform: uppercase;
+  }
+  h1 {
+    font-size: 100px;
+    color: #ffffff;
+    font-family: "Helvetica",Verdana, Arial, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding-top: 44px;
+  }
+  .ArrowDown {
+    margin-top: 34px;
+  }
+}

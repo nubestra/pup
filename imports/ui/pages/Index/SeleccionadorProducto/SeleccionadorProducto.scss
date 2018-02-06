@@ -1,0 +1,64 @@
+.seleccionador-producto {
+  margin-bottom: 40px;
+  h2 {
+    color: #313131;
+    text-transform: uppercase;
+    font-family: "Helvetica",Verdana, Arial, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    padding-top: 80px;
+  }
+  svg {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .mt-40 {
+    margin-top: 40px;
+  }
+  .fila-productos {
+    p {
+      margin-top: 230px;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      max-width: 80%;
+    }
+    div {
+      background-size: cover;
+      transition: all 0.5s ease;
+      height: 315px;
+      line-height: 2;
+    }
+    div:hover {
+      p {
+        line-height: 2.5;
+        font-size: 20px;
+        transition: all 0.5s ease;
+      }
+    }
+    .Ventanas {
+      background-image: url("/productos-simulador/ventanas.png");
+    }
+    .Puertas {
+      background-image: url("/productos-simulador/puertas.png");
+    }
+    .Barandales {
+      background-image: url("/productos-simulador/barandales.png");
+    }
+    .Cancelería {
+      background-image: url("/productos-simulador/canceleria.png");
+    }
+    .PVC {
+      background-image: url("/productos-simulador/pvc.png");
+    }
+    .Templados {
+      background-image: url("/productos-simulador/templados.png");
+    }
+    .Aluminio {
+      background-image: url("/productos-simulador/aluminio.png");
+    }
+    .Fachadas {
+      background-image: url("/productos-simulador/fachadas.png");
+    }
+  }
+}

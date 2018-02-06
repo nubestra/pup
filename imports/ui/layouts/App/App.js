@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Grid } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
@@ -26,7 +25,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 import Footer from '../../components/Footer/Footer';
 import Terms from '../../pages/Terms/Terms';
 import Privacy from '../../pages/Privacy/Privacy';
-import ExamplePage from '../../pages/ExamplePage/ExamplePage';
+import Simulador from '../../pages/Simulador/Simulador';
 import VerifyEmailAlert from '../../components/VerifyEmailAlert/VerifyEmailAlert';
 import getUserName from '../../../modules/get-user-name';
 
@@ -44,26 +43,24 @@ const App = props => (
           />
           : ''}
         <Navigation {...props} />
-        <Grid>
-          <Switch>
-            <Route exact name="index" path="/" component={Index} />
-            <Authenticated exact path="/documents" component={Documents} {...props} />
-            <Authenticated exact path="/documents/new" component={NewDocument} {...props} />
-            <Authenticated exact path="/documents/:_id" component={ViewDocument} {...props} />
-            <Authenticated exact path="/documents/:_id/edit" component={EditDocument} {...props} />
-            <Authenticated exact path="/profile" component={Profile} {...props} />
-            <Public path="/signup" component={Signup} {...props} />
-            <Public path="/login" component={Login} {...props} />
-            <Route path="/logout" component={Logout} {...props} />
-            <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
-            <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
-            <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
-            <Route name="terms" path="/terms" component={Terms} />
-            <Route name="privacy" path="/privacy" component={Privacy} />
-            <Route name="examplePage" path="/example-page" component={ExamplePage} />
-            <Route component={NotFound} />
-          </Switch>
-        </Grid>
+        <Switch>
+          <Route exact name="index" path="/" component={Index} />
+          <Authenticated exact path="/documents" component={Documents} {...props} />
+          <Authenticated exact path="/documents/new" component={NewDocument} {...props} />
+          <Authenticated exact path="/documents/:_id" component={ViewDocument} {...props} />
+          <Authenticated exact path="/documents/:_id/edit" component={EditDocument} {...props} />
+          <Authenticated exact path="/profile" component={Profile} {...props} />
+          <Public path="/signup" component={Signup} {...props} />
+          <Public path="/login" component={Login} {...props} />
+          <Route path="/logout" component={Logout} {...props} />
+          <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
+          <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
+          <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
+          <Route name="terms" path="/terms" component={Terms} />
+          <Route name="privacy" path="/privacy" component={Privacy} />
+          <Route name="simulador" path="/simulador" component={Simulador} />
+          <Route component={NotFound} />
+        </Switch>
         <Footer />
       </div>
     ) : ''}

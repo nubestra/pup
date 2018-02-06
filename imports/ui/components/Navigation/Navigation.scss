@@ -1,6 +1,39 @@
-.navbar {
-  border-radius: 0;
-  border-left: none;
-  border-right: none;
-  border-top: none;
+nav {
+  height: 124px;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  background: #ffffff!important;
+  border-color: none!important;
+  border: none!important;
+  margin-bottom: 0px!important;
+  .container, .navbar-brand, .navbar-header, ul .navbar-nav {
+    height: 112px;
+  }
+  .navbar-brand {
+    img {
+      max-height: 60px;
+      margin-left: 58px;
+      margin-top: 18px;
+    }
+  }
+  .navbar-nav {
+    padding: 38px;
+    li {
+      a {
+        padding-right: 26px;
+      }
+    }
+  }
+}
+a.active {
+  color: #021827;
+}
+a:hover, a:focus {
+    color: #021827;
+    text-decoration: none;
+}
+.nav-link {
+    color: #A0A0A0;
+    font-weight: 300;
+    padding: 20px;
+    font-size: 16px;
 }
